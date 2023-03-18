@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import DashboardCard from '@/components/DashboardCard';
+import ListingCard from '@/components/ListingCard';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -33,7 +34,26 @@ export default function Home() {
 					Dashboard
 				</h1>
 				<DashboardCard />
-        <section className=''></section>
+				<section className='' style={{ marginTop: '60px' }}>
+					<h5
+						className='text u-bold heading-level-7'
+						style={{
+							color: 'hsl(var(--color-neutral-500))',
+							marginBottom: '30px',
+						}}
+					>
+						Project listing
+					</h5>
+					<section>
+						<ListingCard
+							firstname='Arnold'
+							lastname='Mark'
+							projectTitle='Leveraging Appwrite to build SaaS company using serverless architecture'
+							courses={35}
+							status='in progress'
+						/>
+					</section>
+				</section>
 			</main>
 		</>
 	);
