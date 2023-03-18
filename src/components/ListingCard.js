@@ -43,10 +43,11 @@ const ListingCard = ({
 				</div>
 				<div>
 					<p
-						className='u-bold text '
+						className='u-bold text'
 						style={{
 							color: 'hsl(var(--color-neutral-500))',
 							marginBottom: '7px',
+                            textTransform: 'capitalize'
 						}}
 					>
 						{`${firstname} ${lastname}`}
