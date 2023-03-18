@@ -7,6 +7,20 @@ const ListingCard = ({
 	courses,
 	status,
 }) => {
+	const bgColorHelper = (statusState) =>
+		statusState == 'inProgress'
+			? '#DDDDFB'
+			: statusState == 'completed'
+			? '#F0FEF7'
+			: '#FFF4F5';
+
+	const textColorHelper = (statusState) =>
+		statusState == 'inProgress'
+			? '#5D5FEF'
+			: statusState == 'completed'
+			? '#01754A'
+			: '#B51212';
+
 	return (
 		<div
 			className='card u-flex u-main-space-between'
@@ -36,6 +50,7 @@ const ListingCard = ({
 						style={{
 							color: 'hsl(var(--color-neutral-0))',
 							letterSpacing: '4.5%',
+							textTransform: 'capitalize',
 						}}
 					>
 						{`${firstname.charAt(0)} ${lastname.charAt(0)}`}
@@ -47,7 +62,7 @@ const ListingCard = ({
 						style={{
 							color: 'hsl(var(--color-neutral-500))',
 							marginBottom: '7px',
-                            textTransform: 'capitalize'
+							textTransform: 'capitalize',
 						}}
 					>
 						{`${firstname} ${lastname}`}
@@ -57,7 +72,7 @@ const ListingCard = ({
 					</p>
 				</div>
 			</section>
-			<section>
+			<section className='u-flex u-flex-vertical u-cross-end'>
 				<div
 					className='u-flex u-cross-center'
 					style={{ marginBottom: '8px' }}
@@ -75,8 +90,8 @@ const ListingCard = ({
 						paddingBottom: '4px',
 						paddingLeft: '18px',
 						paddingRight: '18px',
-						backgroundColor: '#DDDDFB',
-						color: '#5D5FEF',
+						backgroundColor: bgColorHelper(status),
+						color: textColorHelper(status),
 						textTransform: 'uppercase',
 						borderRadius: 'var(--border-radius-medium)',
 						fontSize: '10px',

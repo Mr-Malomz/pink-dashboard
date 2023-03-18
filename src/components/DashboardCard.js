@@ -1,6 +1,11 @@
 import React from 'react';
 
-const DashboardCard = () => {
+const DashboardCard = ({ data }) => {
+	const getTotal = () =>
+		data.documents
+			.map((list) => list.courses)
+			.reduce((prev, next) => prev + next);
+
 	return (
 		<div
 			className='card u-flex'
@@ -32,7 +37,7 @@ const DashboardCard = () => {
 					className='u-bold'
 					style={{ fontSize: '80px', color: '#5D5FEF' }}
 				>
-					1200
+					{data ? getTotal() : 0}
 				</h1>
 			</section>
 			<section
@@ -54,7 +59,7 @@ const DashboardCard = () => {
 					className='u-bold'
 					style={{ fontSize: '80px', color: '#5D5FEF' }}
 				>
-					120
+					{data ? data.total : 0}
 				</h1>
 			</section>
 		</div>
