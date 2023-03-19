@@ -16,7 +16,7 @@ export default function Home() {
 			.catch((err) => alert('Error loading dashboard data'));
 		return () => {};
 	}, []);
-console.log(data)
+	
 	return (
 		<>
 			<Head>
